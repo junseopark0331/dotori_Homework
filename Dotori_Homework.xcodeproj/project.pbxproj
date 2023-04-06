@@ -103,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				78DB104329DC3645002AEE2C /* Custom */,
+				78CC6D0529D48321006F3354 /* FindPassword */,
 				78CC6D0429D48314006F3354 /* FindID */,
 				78CC6D0329D482FE006F3354 /* Signup */,
 				78CC6D0129D482F3006F3354 /* Main */,
@@ -176,7 +177,6 @@
 				7898696C29DC5965001CEBBC /* CustomTextField.swift */,
 				7898696E29DC5A5B001CEBBC /* SecureButtonTextField.swift */,
 				7898696A29DC5847001CEBBC /* NextStepButton.swift */,
-				78CC6D0529D48321006F3354 /* FindPassword */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
