@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7849381229D3B07400119B7B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7849381129D3B07400119B7B /* MainViewController.swift */; };
+		785F7C5729DDB2A600435DD0 /* PasswordSignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785F7C5629DDB2A600435DD0 /* PasswordSignupViewController.swift */; };
 		786A242729D1BEF100A1EF7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786A242629D1BEF100A1EF7D /* AppDelegate.swift */; };
 		786A242929D1BEF100A1EF7D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786A242829D1BEF100A1EF7D /* SceneDelegate.swift */; };
 		786A242B29D1BEF100A1EF7D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786A242A29D1BEF100A1EF7D /* LoginViewController.swift */; };
@@ -15,14 +16,20 @@
 		786A243329D1BEF100A1EF7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 786A243129D1BEF100A1EF7D /* LaunchScreen.storyboard */; };
 		786A243C29D1D27C00A1EF7D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 786A243B29D1D27C00A1EF7D /* SnapKit */; };
 		786A243F29D1D2CC00A1EF7D /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 786A243E29D1D2CC00A1EF7D /* Then */; };
-		786A244129D1DA3A00A1EF7D /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786A244029D1DA3A00A1EF7D /* Base.swift */; };
-		78CCDFB429D3F4C70035CC02 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CCDFB329D3F4C70035CC02 /* SignupViewController.swift */; };
+		7898696B29DC5847001CEBBC /* NextStepButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7898696A29DC5847001CEBBC /* NextStepButton.swift */; };
+		7898696D29DC5965001CEBBC /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7898696C29DC5965001CEBBC /* CustomTextField.swift */; };
+		7898696F29DC5A5B001CEBBC /* SecureButtonTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7898696E29DC5A5B001CEBBC /* SecureButtonTextField.swift */; };
+		7898697129DC5B61001CEBBC /* AuthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7898697029DC5B61001CEBBC /* AuthHeaderView.swift */; };
+		7898697329DC66B4001CEBBC /* AdditionalLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7898697229DC66B4001CEBBC /* AdditionalLabel.swift */; };
+		78CC6D0B29D484EC006F3354 /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CC6D0A29D484EC006F3354 /* UIColor+hex.swift */; };
+		78CCDFB429D3F4C70035CC02 /* IdSignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CCDFB329D3F4C70035CC02 /* IdSignupViewController.swift */; };
 		78CCDFB629D3F4D80035CC02 /* FindIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CCDFB529D3F4D80035CC02 /* FindIdViewController.swift */; };
 		78CCDFB829D3F4E70035CC02 /* FindPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CCDFB729D3F4E60035CC02 /* FindPasswordViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7849381129D3B07400119B7B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		785F7C5629DDB2A600435DD0 /* PasswordSignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordSignupViewController.swift; sourceTree = "<group>"; };
 		786A242329D1BEF100A1EF7D /* Dotori_Homework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dotori_Homework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		786A242629D1BEF100A1EF7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		786A242829D1BEF100A1EF7D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,8 +37,13 @@
 		786A242F29D1BEF100A1EF7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		786A243229D1BEF100A1EF7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		786A243429D1BEF100A1EF7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		786A244029D1DA3A00A1EF7D /* Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
-		78CCDFB329D3F4C70035CC02 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		7898696A29DC5847001CEBBC /* NextStepButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextStepButton.swift; sourceTree = "<group>"; };
+		7898696C29DC5965001CEBBC /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		7898696E29DC5A5B001CEBBC /* SecureButtonTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureButtonTextField.swift; sourceTree = "<group>"; };
+		7898697029DC5B61001CEBBC /* AuthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHeaderView.swift; sourceTree = "<group>"; };
+		7898697229DC66B4001CEBBC /* AdditionalLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalLabel.swift; sourceTree = "<group>"; };
+		78CC6D0A29D484EC006F3354 /* UIColor+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
+		78CCDFB329D3F4C70035CC02 /* IdSignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdSignupViewController.swift; sourceTree = "<group>"; };
 		78CCDFB529D3F4D80035CC02 /* FindIdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindIdViewController.swift; sourceTree = "<group>"; };
 		78CCDFB729D3F4E60035CC02 /* FindPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPasswordViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,19 +80,105 @@
 		786A242529D1BEF100A1EF7D /* Dotori_Homework */ = {
 			isa = PBXGroup;
 			children = (
-				786A242629D1BEF100A1EF7D /* AppDelegate.swift */,
-				786A242829D1BEF100A1EF7D /* SceneDelegate.swift */,
-				786A244029D1DA3A00A1EF7D /* Base.swift */,
-				786A242A29D1BEF100A1EF7D /* LoginViewController.swift */,
-				7849381129D3B07400119B7B /* MainViewController.swift */,
-				78CCDFB329D3F4C70035CC02 /* SignupViewController.swift */,
-				78CCDFB529D3F4D80035CC02 /* FindIdViewController.swift */,
-				78CCDFB729D3F4E60035CC02 /* FindPasswordViewController.swift */,
+				78CC6CFE29D482E4006F3354 /* App */,
+				78CC6CFF29D482EC006F3354 /* Scene */,
+				78CC6D0829D484E0006F3354 /* Utils */,
 				786A242F29D1BEF100A1EF7D /* Assets.xcassets */,
 				786A243129D1BEF100A1EF7D /* LaunchScreen.storyboard */,
 				786A243429D1BEF100A1EF7D /* Info.plist */,
 			);
 			path = Dotori_Homework;
+			sourceTree = "<group>";
+		};
+		78CC6CFE29D482E4006F3354 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				786A242629D1BEF100A1EF7D /* AppDelegate.swift */,
+				786A242829D1BEF100A1EF7D /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		78CC6CFF29D482EC006F3354 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				78DB104329DC3645002AEE2C /* Custom */,
+				78CC6D0429D48314006F3354 /* FindID */,
+				78CC6D0329D482FE006F3354 /* Signup */,
+				78CC6D0129D482F3006F3354 /* Main */,
+				78CC6D0029D482EF006F3354 /* Login */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		78CC6D0029D482EF006F3354 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				786A242A29D1BEF100A1EF7D /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		78CC6D0129D482F3006F3354 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				7849381129D3B07400119B7B /* MainViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		78CC6D0329D482FE006F3354 /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				78CCDFB329D3F4C70035CC02 /* IdSignupViewController.swift */,
+				785F7C5629DDB2A600435DD0 /* PasswordSignupViewController.swift */,
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
+		78CC6D0429D48314006F3354 /* FindID */ = {
+			isa = PBXGroup;
+			children = (
+				78CCDFB529D3F4D80035CC02 /* FindIdViewController.swift */,
+			);
+			path = FindID;
+			sourceTree = "<group>";
+		};
+		78CC6D0529D48321006F3354 /* FindPassword */ = {
+			isa = PBXGroup;
+			children = (
+				78CCDFB729D3F4E60035CC02 /* FindPasswordViewController.swift */,
+			);
+			path = FindPassword;
+			sourceTree = "<group>";
+		};
+		78CC6D0829D484E0006F3354 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				78CC6D0929D484E5006F3354 /* Extension */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		78CC6D0929D484E5006F3354 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				78CC6D0A29D484EC006F3354 /* UIColor+hex.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		78DB104329DC3645002AEE2C /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				7898697029DC5B61001CEBBC /* AuthHeaderView.swift */,
+				7898697229DC66B4001CEBBC /* AdditionalLabel.swift */,
+				7898696C29DC5965001CEBBC /* CustomTextField.swift */,
+				7898696E29DC5A5B001CEBBC /* SecureButtonTextField.swift */,
+				7898696A29DC5847001CEBBC /* NextStepButton.swift */,
+				78CC6D0529D48321006F3354 /* FindPassword */,
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,12 +259,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78CCDFB429D3F4C70035CC02 /* SignupViewController.swift in Sources */,
-				786A244129D1DA3A00A1EF7D /* Base.swift in Sources */,
+				7898697329DC66B4001CEBBC /* AdditionalLabel.swift in Sources */,
+				78CCDFB429D3F4C70035CC02 /* IdSignupViewController.swift in Sources */,
 				786A242B29D1BEF100A1EF7D /* LoginViewController.swift in Sources */,
+				7898696F29DC5A5B001CEBBC /* SecureButtonTextField.swift in Sources */,
 				786A242729D1BEF100A1EF7D /* AppDelegate.swift in Sources */,
+				7898696D29DC5965001CEBBC /* CustomTextField.swift in Sources */,
 				78CCDFB829D3F4E70035CC02 /* FindPasswordViewController.swift in Sources */,
+				785F7C5729DDB2A600435DD0 /* PasswordSignupViewController.swift in Sources */,
+				7898697129DC5B61001CEBBC /* AuthHeaderView.swift in Sources */,
+				7898696B29DC5847001CEBBC /* NextStepButton.swift in Sources */,
 				78CCDFB629D3F4D80035CC02 /* FindIdViewController.swift in Sources */,
+				78CC6D0B29D484EC006F3354 /* UIColor+hex.swift in Sources */,
 				786A242929D1BEF100A1EF7D /* SceneDelegate.swift in Sources */,
 				7849381229D3B07400119B7B /* MainViewController.swift in Sources */,
 			);

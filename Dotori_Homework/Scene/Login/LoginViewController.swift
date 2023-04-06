@@ -108,18 +108,21 @@ final class LoginViewController: UIViewController {
         view.addSubview(signinButton)
         view.addSubview(loginButton)
         setLayout()
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.title = "로그인"
     }
     
     func setLayout(){
         self.dotori_Image.snp.makeConstraints{
             $0.height.equalTo(48)
             $0.width.equalTo(48)
-            $0.top.equalTo(self.view).offset(121)
-            $0.leading.equalTo(self.view).offset(24)
+            $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(30)
+            $0.leading.equalTo(self.view.snp.leading).offset(24)
         }
         self.titleLabel.snp.makeConstraints{
-            $0.top.equalTo(self.view).offset(131)
+            $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(30)
             $0.leading.equalTo(self.view).offset(80)
         }
         self.welcomeLabel.snp.makeConstraints{
@@ -184,7 +187,7 @@ final class LoginViewController: UIViewController {
     }
     
     @objc func signupButtonTapped(_ sender: UIButton){
-        let vc = SignupViewController()
+        let vc = IdSignupViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -199,8 +202,6 @@ final class LoginViewController: UIViewController {
         self.present(vc, animated: true)
     }
     
-    
-   
 }
 
 

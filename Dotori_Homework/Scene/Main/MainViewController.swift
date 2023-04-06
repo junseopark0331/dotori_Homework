@@ -27,8 +27,7 @@ final class MainViewController: UIViewController{
     
     func setLayout(){
         self.mainLabel.snp.makeConstraints{
-            $0.centerY.equalTo(self.view.snp.centerY)
-            $0.centerX.equalTo(self.view.snp.centerX)
+            $0.center.equalToSuperview()
         }
     }
     

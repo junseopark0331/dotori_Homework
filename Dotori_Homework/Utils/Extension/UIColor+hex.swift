@@ -1,12 +1,11 @@
 //
-//  Base.swift
+//  UIColor+hex.swift
 //  Dotori_Homework
 //
-//  Created by 박준서 on 2023/03/27.
+//  Created by 박준서 on 2023/03/29.
 //
 
 import UIKit
-
 
 extension UIColor {
     convenience init(red: Int, green: Int, blue: Int) {
