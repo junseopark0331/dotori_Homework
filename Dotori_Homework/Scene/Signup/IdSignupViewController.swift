@@ -41,6 +41,10 @@ final class IdSignupViewController: UIViewController{
         view.addSubview(additionalLabel)
         view.addSubview(idTextField)
         view.addSubview(nextStepButton)
+        
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+            backBarButtonItem.tintColor = UIColor(rgb: 0x333333)
+            self.navigationItem.backBarButtonItem = backBarButtonItem
         setLayout()
         
     }

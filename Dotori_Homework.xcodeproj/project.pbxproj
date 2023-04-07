@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7849381229D3B07400119B7B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7849381129D3B07400119B7B /* MainViewController.swift */; };
+		7851444B29DF2BEA00016611 /* NicknameSignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7851444A29DF2BEA00016611 /* NicknameSignupViewController.swift */; };
+		7851444D29DF2D0900016611 /* FinishSignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7851444C29DF2D0900016611 /* FinishSignupViewController.swift */; };
 		785F7C5729DDB2A600435DD0 /* PasswordSignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785F7C5629DDB2A600435DD0 /* PasswordSignupViewController.swift */; };
 		786A242729D1BEF100A1EF7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786A242629D1BEF100A1EF7D /* AppDelegate.swift */; };
 		786A242929D1BEF100A1EF7D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786A242829D1BEF100A1EF7D /* SceneDelegate.swift */; };
@@ -29,6 +31,8 @@
 
 /* Begin PBXFileReference section */
 		7849381129D3B07400119B7B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		7851444A29DF2BEA00016611 /* NicknameSignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameSignupViewController.swift; sourceTree = "<group>"; };
+		7851444C29DF2D0900016611 /* FinishSignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishSignupViewController.swift; sourceTree = "<group>"; };
 		785F7C5629DDB2A600435DD0 /* PasswordSignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordSignupViewController.swift; sourceTree = "<group>"; };
 		786A242329D1BEF100A1EF7D /* Dotori_Homework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dotori_Homework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		786A242629D1BEF100A1EF7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +137,8 @@
 			children = (
 				78CCDFB329D3F4C70035CC02 /* IdSignupViewController.swift */,
 				785F7C5629DDB2A600435DD0 /* PasswordSignupViewController.swift */,
+				7851444A29DF2BEA00016611 /* NicknameSignupViewController.swift */,
+				7851444C29DF2D0900016611 /* FinishSignupViewController.swift */,
 			);
 			path = Signup;
 			sourceTree = "<group>";
@@ -263,6 +269,8 @@
 				78CCDFB429D3F4C70035CC02 /* IdSignupViewController.swift in Sources */,
 				786A242B29D1BEF100A1EF7D /* LoginViewController.swift in Sources */,
 				7898696F29DC5A5B001CEBBC /* SecureButtonTextField.swift in Sources */,
+				7851444B29DF2BEA00016611 /* NicknameSignupViewController.swift in Sources */,
+				7851444D29DF2D0900016611 /* FinishSignupViewController.swift in Sources */,
 				786A242729D1BEF100A1EF7D /* AppDelegate.swift in Sources */,
 				7898696D29DC5965001CEBBC /* CustomTextField.swift in Sources */,
 				78CCDFB829D3F4E70035CC02 /* FindPasswordViewController.swift in Sources */,

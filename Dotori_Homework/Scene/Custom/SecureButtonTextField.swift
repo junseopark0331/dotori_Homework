@@ -11,21 +11,16 @@ import SnapKit
 
 public final class SecureButtonTextField: UITextField{
     
-    var passwordEyeButton = UIButton().then{
-        $0.setImage(UIImage(named: "password hidden eye icon"), for: .normal)
-        $0.addTarget(self, action: #selector(passwordEyeButtonTapped), for: .touchUpInside)
-    }
+    var passwordEyeButton = UIButton(type: .custom)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
-        setLayout()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupView()
-        setLayout()
     }
     
     func setupView(){
@@ -34,25 +29,33 @@ public final class SecureButtonTextField: UITextField{
         layer.borderColor = UIColor(rgb: 0x000000).cgColor
         layer.borderWidth = 1
         
-        isSecureTextEntry.toggle()
-        addSubview(passwordEyeButton)
+        isSecureTextEntry = true
+        setPasswordShownButtonImage()
     }
     
-    func setLayout(){
-        self.passwordEyeButton.snp.makeConstraints{
-            $0.height.equalTo(12)
-            $0.width.equalTo(20)
-            $0.top.equalToSuperview().offset(20)
-            $0.trailing.equalToSuperview().inset(12)
-        }
-    }
     
-    @objc func passwordEyeButtonTapped(_ sender: UIButton){
-        print("20")
+    func setPasswordShownButtonImage () {
+        passwordEyeButton = UIButton.init (primaryAction: UIAction (handler: { [self]_ in
+            isSecureTextEntry.toggle()
+            self.passwordEyeButton.isSelected.toggle ()
+        }))
+
+        var buttonConfiguration = UIButton.Configuration.plain()
+        buttonConfiguration.imagePadding = 10
+        buttonConfiguration.baseBackgroundColor = .clear
+
+        passwordEyeButton.setImage (UIImage (systemName: "eye.fill")?.withTintColor(UIColor(rgb: 0x999999), renderingMode: .alwaysOriginal), for: .normal)
+        passwordEyeButton.setImage(UIImage(systemName: "eye.slash.fill")?.withTintColor(UIColor(rgb: 0x999999), renderingMode: .alwaysOriginal), for: .selected)
+        
+        passwordEyeButton.configuration = buttonConfiguration
         passwordEyeButton.isSelected.toggle()
-        let eyeImage = passwordEyeButton.isSelected ? "password shown eye icon" : "password hidden eye icon"
-        passwordEyeButton.setImage(UIImage(named: eyeImage), for: .normal)
+        
+        rightView = passwordEyeButton
+        rightViewMode = .always
+
     }
     
 }
+                                              
 
+                                              
