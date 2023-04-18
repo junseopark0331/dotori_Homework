@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  Dotori_Homework
-//
-//  Created by 박준서 on 2023/03/27.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {

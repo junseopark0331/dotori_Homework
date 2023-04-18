@@ -1,10 +1,3 @@
-//
-//  FindIdViewController.swift
-//  Dotori_Homework
-//
-//  Created by 박준서 on 2023/03/29.
-//
-
 import UIKit
 import Then
 import SnapKit
@@ -32,7 +25,7 @@ final class FindIdViewController: UIViewController{
     }
     
     func setLayout(){
-        self.findIDLabel.snp.makeConstraints{
+        self.findIDLabel.snp.makeConstraints {
             $0.centerY.equalTo(self.view.snp.centerY)
             $0.centerX.equalTo(self.view.snp.centerX)
         }
@@ -41,7 +34,9 @@ final class FindIdViewController: UIViewController{
             $0.top.leading.equalTo(self.view).offset(32)
         }
     }
-    @objc func closeButtonTapped(_ sender: UIButton){
+
+    // MARK: - <#title#>
+    @objc func closeButtonTapped(_ sender: UIButton) {
         self.presentingViewController?.dismiss(animated: true)
     }
 }

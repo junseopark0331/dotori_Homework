@@ -1,15 +1,8 @@
-//
-//  textFieldSecureButton.swift
-//  Dotori_Homework
-//
-//  Created by 박준서 on 2023/04/04.
-//
-
 import UIKit
 import Then
 import SnapKit
 
-public final class SecureButtonTextField: UITextField{
+public final class SecureButtonTextField: UITextField {
     
     var passwordEyeButton = UIButton(type: .custom)
     
@@ -32,19 +25,24 @@ public final class SecureButtonTextField: UITextField{
         isSecureTextEntry = true
         setPasswordShownButtonImage()
     }
-    
-    
-    func setPasswordShownButtonImage () {
-        passwordEyeButton = UIButton.init (primaryAction: UIAction (handler: { [self]_ in
-            isSecureTextEntry.toggle()
-            self.passwordEyeButton.isSelected.toggle ()
+
+    func setPasswordShownButtonImage() {
+        passwordEyeButton = UIButton.init (primaryAction: UIAction (handler: { [weak self] _ in
+            self?.isSecureTextEntry.toggle()
+            self?.passwordEyeButton.isSelected.toggle()
         }))
 
         var buttonConfiguration = UIButton.Configuration.plain()
         buttonConfiguration.imagePadding = 10
         buttonConfiguration.baseBackgroundColor = .clear
 
-        passwordEyeButton.setImage (UIImage (systemName: "eye.fill")?.withTintColor(UIColor(rgb: 0x999999), renderingMode: .alwaysOriginal), for: .normal)
+        passwordEyeButton.setImage(
+            UIImage(systemName: "eye.fill")?.withTintColor(
+                UIColor(rgb: 0x999999),
+                renderingMode: .alwaysOriginal
+            ),
+            for: .normal
+        )
         passwordEyeButton.setImage(UIImage(systemName: "eye.slash.fill")?.withTintColor(UIColor(rgb: 0x999999), renderingMode: .alwaysOriginal), for: .selected)
         
         passwordEyeButton.configuration = buttonConfiguration
@@ -54,8 +52,4 @@ public final class SecureButtonTextField: UITextField{
         rightViewMode = .always
 
     }
-    
 }
-                                              
-
-                                              

@@ -11,11 +11,11 @@ import SnapKit
 
 public final class AuthHeaderView: UIView{
     
-    var dotori_Image = UIImageView().then{
+    private let dotoriImage = UIImageView().then {
         $0.image = UIImage(named: "dotori")
     }
 
-    var titleLabel = UILabel().then{
+    var titleLabel = UILabel().then {
         $0.text = "Dotori"
         $0.textColor = UIColor(rgb: 0x000000)
         $0.font = .boldSystemFont(ofSize: 32)
@@ -25,7 +25,7 @@ public final class AuthHeaderView: UIView{
         $0.textColor = UIColor(rgb: 0x555555)
         $0.font = .systemFont(ofSize: 16)
     }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -40,24 +40,24 @@ public final class AuthHeaderView: UIView{
     
     func setupView(){
         backgroundColor = UIColor(rgb: 0xFFFFFF)
-        addSubview(dotori_Image)
+        addSubview(dotoriImage)
         addSubview(titleLabel)
         addSubview(mainLabel)
     }
     
     func setLayout(){
-        self.dotori_Image.snp.makeConstraints{
+        self.dotoriImage.snp.makeConstraints{
             $0.height.width.equalTo(48)
             $0.top.equalToSuperview().offset(30)
             $0.leading.equalToSuperview()
         }
         self.titleLabel.snp.makeConstraints{
             $0.top.equalToSuperview().offset(30)
-            $0.leading.equalTo(dotori_Image.snp.trailing).offset(8)
+            $0.leading.equalTo(dotoriImage.snp.trailing).offset(8)
         }
         self.mainLabel.snp.makeConstraints{
             $0.top.equalTo(titleLabel.snp.bottom).offset(20)
-            $0.leading.equalTo(dotori_Image.snp.leading)
+            $0.leading.equalTo(dotoriImage.snp.leading)
         }
     }
     

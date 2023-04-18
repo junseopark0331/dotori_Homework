@@ -1,46 +1,42 @@
-//
-//  SignupViewController.swift
-//  Dotori_Homework
-//
-//  Created by 박준서 on 2023/03/29.
-//
-
 import UIKit
 import Then
 import SnapKit
 
-final class PasswordSignupViewController: UIViewController{
+final class PasswordSignupViewController: UIViewController {
     
-    private let authHeaderView = AuthHeaderView().then{
+    private let authHeaderView = AuthHeaderView().then {
         $0.mainLabel.text = "사용하실 비밀번호를 입력해주세요"
     }
     
-    private let additionalLabel = AdditonalLabel().then{
+    private let additionalLabel = AdditonalLabel().then {
         $0.text = "비밀번호는 최소 8자에서 최대 40자까지 가능합니다"
     }
     
-    private let passwordTextField = SecureButtonTextField().then{
+    private let passwordTextField = SecureButtonTextField().then {
         $0.placeholder = "비밀번호"
     }
     
-    private let passwordAgainTextField = SecureButtonTextField().then{
+    private let passwordAgainTextField = SecureButtonTextField().then {
         $0.placeholder = "비밀번호 재입력"
     }
     
-    private let nextStepButton = NextStepButton().then{
+    private let nextStepButton = NextStepButton().then {
         $0.setTitle("다음", for: .normal)
         $0.isEnabled = false
         $0.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
     }
     
-    override func viewDidLoad(){
+    override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         passwordTextField.delegate = self
         passwordAgainTextField.delegate = self
         
-        self.navigationController?.navigationBar.topItem?.title = ""
-        self.navigationController?.navigationBar.tintColor = UIColor(rgb: 0x333333)
+        self.title = "회원가입"
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        backBarButtonItem.tintColor = UIColor(rgb: 0x333333)
+        navigationItem.backBarButtonItem = backBarButtonItem
+
         
         view.addSubview(authHeaderView)
         view.addSubview(additionalLabel)
@@ -48,50 +44,42 @@ final class PasswordSignupViewController: UIViewController{
         view.addSubview(passwordAgainTextField)
         view.addSubview(nextStepButton)
         
-        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-            backBarButtonItem.tintColor = UIColor(rgb: 0x333333)
-            self.navigationItem.backBarButtonItem = backBarButtonItem
         setLayout()
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        self.title = "회원가입"
-    }
-    
-    @objc func nextButtonTapped(_ sender: UIButton){
+    @objc func nextButtonTapped(_ sender: UIButton) {
         let vc = NicknameSignupViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    func setLayout(){
-        self.authHeaderView.snp.makeConstraints{
+    func setLayout() {
+        self.authHeaderView.snp.makeConstraints {
             $0.height.equalTo(82)
             $0.width.equalTo(380)
             $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(30)
             $0.leading.equalTo(self.view).offset(24)
         }
-        self.additionalLabel.snp.makeConstraints{
+        self.additionalLabel.snp.makeConstraints {
             $0.top.equalTo(authHeaderView.snp.bottom).offset(28)
             $0.leading.equalTo(authHeaderView.snp.leading)
         }
-        self.passwordTextField.snp.makeConstraints{
+        self.passwordTextField.snp.makeConstraints {
             $0.height.equalTo(52)
             $0.top.equalTo(additionalLabel.snp.bottom).offset(28)
             $0.leading.trailing.equalToSuperview().inset(24)
         }
-        self.passwordAgainTextField.snp.makeConstraints{
+        self.passwordAgainTextField.snp.makeConstraints {
             $0.height.equalTo(passwordTextField.snp.height)
             $0.top.equalTo(passwordTextField.snp.bottom).offset(24)
             $0.leading.trailing.equalToSuperview().inset(24)
         }
-        self.nextStepButton.snp.makeConstraints{
+        self.nextStepButton.snp.makeConstraints {
             $0.height.equalTo(52)
             $0.bottom.equalTo(self.view.safeAreaLayoutGuide).inset(24)
             $0.leading.trailing.equalToSuperview().inset(24)
         }
     }
-    
 }
 
 extension PasswordSignupViewController: UITextFieldDelegate {

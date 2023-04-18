@@ -1,13 +1,6 @@
-//
-//  additionalLabel.swift
-//  Dotori_Homework
-//
-//  Created by 박준서 on 2023/04/04.
-//
-
 import UIKit
 
-public final class AdditonalLabel: UILabel{
+public final class CustomTextField: UITextField{
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -20,8 +13,10 @@ public final class AdditonalLabel: UILabel{
     }
     
     func setupView(){
-        textColor = UIColor(rgb: 0x555555)
-        font = .systemFont(ofSize: 12)
+        borderStyle = .roundedRect
+        layer.cornerRadius = 8
+        layer.borderColor = UIColor(rgb: 0x000000).cgColor
+        layer.borderWidth = 1
     }
     
 }

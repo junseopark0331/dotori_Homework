@@ -1,91 +1,78 @@
-//
-//  SignupViewController.swift
-//  Dotori_Homework
-//
-//  Created by 박준서 on 2023/03/29.
-//
-
 import UIKit
 import Then
 import SnapKit
 
-final class IdSignupViewController: UIViewController{
-    
-    private let authHeaderView = AuthHeaderView().then{
+final class IdSignupViewController: UIViewController {
+    private let authHeaderView = AuthHeaderView().then {
         $0.mainLabel.text = "사용하실 아이디를 입력해주세요"
     }
     
-    private let additionalLabel = AdditonalLabel().then{
+    private let additionalLabel = AdditonalLabel().then {
         $0.text = "아이디는 최소 4자에서 최대 20자까지 가능합니다"
     }
     
-    private let idTextField = CustomTextField().then{
+    private let idTextField = CustomTextField().then {
         $0.placeholder = "아이디"
     }
     
-    private let nextStepButton = NextStepButton().then{
+    private lazy var nextStepButton = NextStepButton().then {
         $0.setTitle("다음", for: .normal)
         $0.isEnabled = false
         $0.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
     }
     
-    override func viewDidLoad(){
+    override func viewDidLoad() {
         super.viewDidLoad()
         idTextField.delegate = self
         view.backgroundColor = .white
         
-        self.navigationController?.navigationBar.topItem?.title = ""
-        self.navigationController?.navigationBar.tintColor = UIColor(rgb: 0x333333)
+        self.title = "회원가입"
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        backBarButtonItem.tintColor = UIColor(rgb: 0x333333)
+        navigationItem.backBarButtonItem = backBarButtonItem
         
         view.addSubview(authHeaderView)
         view.addSubview(additionalLabel)
         view.addSubview(idTextField)
         view.addSubview(nextStepButton)
         
-        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-            backBarButtonItem.tintColor = UIColor(rgb: 0x333333)
-            self.navigationItem.backBarButtonItem = backBarButtonItem
         setLayout()
-        
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        self.title = "회원가입"
-    }
-    
-    @objc func nextButtonTapped(_ sender: UIButton){
-        let vc = PasswordSignupViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func setLayout(){
-        self.authHeaderView.snp.makeConstraints{
+    func setLayout() {
+        self.authHeaderView.snp.makeConstraints {
             $0.height.equalTo(82)
             $0.width.equalTo(380)
             $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(30)
             $0.leading.equalTo(self.view).offset(24)
         }
-        self.additionalLabel.snp.makeConstraints{
+        self.additionalLabel.snp.makeConstraints {
             $0.top.equalTo(authHeaderView.snp.bottom).offset(28)
             $0.leading.equalTo(authHeaderView.snp.leading)
         }
-        self.idTextField.snp.makeConstraints{
+        self.idTextField.snp.makeConstraints {
             $0.height.equalTo(52)
             $0.top.equalTo(additionalLabel.snp.bottom).offset(28)
             $0.leading.trailing.equalToSuperview().inset(24)
         }
-        self.nextStepButton.snp.makeConstraints{
+        self.nextStepButton.snp.makeConstraints {
             $0.height.equalTo(52)
             $0.bottom.equalTo(self.view.safeAreaLayoutGuide).inset(24)
             $0.leading.trailing.equalToSuperview().inset(24)
         }
     }
     
+    
+    @objc func nextButtonTapped(_ sender: UIButton) {
+        requestPOST()
+        
+        //        let vc = PasswordSignupViewController()
+        //        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
 
 extension IdSignupViewController: UITextFieldDelegate {
-    
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -116,5 +103,47 @@ extension IdSignupViewController: UITextFieldDelegate {
         guard textField.text!.count < 21 else { return false }
         return true
     }
+    
+}
 
+extension IdSignupViewController{
+
+    
+    func requestPOST() {
+        
+        guard let id = idTextField.text else { return }
+        // 서버 통신 서비스 코드를 싱글톤 변수를 통해서 접근하고 있네요.
+        // 호출 후에 받은 응답을 가지고, 적절한 처리를 해주고 있습니다.
+        ValidId.validId.requestPOST(id: id)
+            
+            
+        
+        
+    }
+    
+    func idConditionFailAlert(){
+        let alert = UIAlertController(
+            title: "에러",
+            message: "아이디가 조건에 맞지 않습니다",
+            preferredStyle: .alert)
+        
+        let defaultAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+        
+        alert.addAction(defaultAction)
+        
+        present(alert, animated: false, completion: nil)
+    }
+    
+    func sameIdAlert(){
+        let alert = UIAlertController(
+            title: "아이디 중복",
+            message: "아이디가 중복됩니다",
+            preferredStyle: .alert)
+        
+        let defaultAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+        
+        alert.addAction(defaultAction)
+        
+        present(alert, animated: false, completion: nil)
+    }
 }
