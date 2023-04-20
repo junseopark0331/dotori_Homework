@@ -5,3 +5,4 @@ enum NetworkResult<T>{
     case serverErr //서버의내부에러
     case networkFail //네트워크연결실패
 }
+

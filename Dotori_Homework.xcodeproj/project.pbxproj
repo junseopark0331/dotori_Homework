@@ -12,6 +12,7 @@
 		7851444D29DF2D0900016611 /* FinishSignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7851444C29DF2D0900016611 /* FinishSignupViewController.swift */; };
 		7852593B29EBD95000AFDE66 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7852593A29EBD95000AFDE66 /* Model.swift */; };
 		785F7C5729DDB2A600435DD0 /* PasswordSignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785F7C5629DDB2A600435DD0 /* PasswordSignupViewController.swift */; };
+		786875C029F15F8500CA655F /* ValidNickname.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786875BF29F15F8500CA655F /* ValidNickname.swift */; };
 		786A242729D1BEF100A1EF7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786A242629D1BEF100A1EF7D /* AppDelegate.swift */; };
 		786A242929D1BEF100A1EF7D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786A242829D1BEF100A1EF7D /* SceneDelegate.swift */; };
 		786A242B29D1BEF100A1EF7D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786A242A29D1BEF100A1EF7D /* LoginViewController.swift */; };
@@ -42,6 +43,7 @@
 		7851444C29DF2D0900016611 /* FinishSignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishSignupViewController.swift; sourceTree = "<group>"; };
 		7852593A29EBD95000AFDE66 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		785F7C5629DDB2A600435DD0 /* PasswordSignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordSignupViewController.swift; sourceTree = "<group>"; };
+		786875BF29F15F8500CA655F /* ValidNickname.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidNickname.swift; sourceTree = "<group>"; };
 		786A242329D1BEF100A1EF7D /* Dotori_Homework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dotori_Homework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		786A242629D1BEF100A1EF7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		786A242829D1BEF100A1EF7D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				78E9BBF029EC488C00F42ADF /* ValidId.swift */,
+				786875BF29F15F8500CA655F /* ValidNickname.swift */,
 			);
 			path = Signup;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				7898696B29DC5847001CEBBC /* NextStepButton.swift in Sources */,
 				78CCDFB629D3F4D80035CC02 /* FindIdViewController.swift in Sources */,
 				78E9BBF129EC488C00F42ADF /* ValidId.swift in Sources */,
+				786875C029F15F8500CA655F /* ValidNickname.swift in Sources */,
 				7852593B29EBD95000AFDE66 /* Model.swift in Sources */,
 				7887107329EB198C00871B6F /* APIConstants.swift in Sources */,
 				78CC6D0B29D484EC006F3354 /* UIColor+hex.swift in Sources */,

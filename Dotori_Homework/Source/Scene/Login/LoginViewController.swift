@@ -148,11 +148,6 @@ final class LoginViewController: UIViewController {
         self.present(vc, animated: true)
     }
     
-    func successLogin() {
-        let vc = MainViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
 }
 
 extension LoginViewController: UITextFieldDelegate {
@@ -211,7 +206,6 @@ extension LoginViewController {
           case .success(let data):
               guard let data = data as? LoginResponse else { return }
               self.successLogin()
-    
           case .requestErr:
               self.failLoginAlert()
           case .pathErr:
@@ -222,6 +216,11 @@ extension LoginViewController {
               return
           }
         }
+    }
+    
+    func successLogin() {
+        let vc = MainViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func failLoginAlert(){

@@ -40,7 +40,6 @@ final class Login {
                 let networkResult = self.judgeStatus(by: statusCode, value)
                 completion(networkResult)
                 
-                
             case .failure:
                 completion(.networkFail)
             }
