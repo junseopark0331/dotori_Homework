@@ -71,7 +71,7 @@ final class Login {
                 
         else { return .pathErr }
         
-//        dump(decodedData)
+        dump(decodedData)
         
         return .success(decodedData as Any)
     }

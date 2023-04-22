@@ -1,15 +1,13 @@
-//
-//  SignupViewController.swift
-//  Dotori_Homework
-//
-//  Created by 박준서 on 2023/03/29.
-//
-
 import UIKit
 import Then
 import SnapKit
 
 final class NicknameSignupViewController: UIViewController {
+    
+    var id: String?
+    var password: String?
+    var nickname: String?
+    
     private let authHeaderView = AuthHeaderView().then {
         $0.mainLabel.text = "사용하실 닉네임을 입력해주세요"
     }
@@ -29,6 +27,7 @@ final class NicknameSignupViewController: UIViewController {
     }
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         nicknameTextField.delegate = self
         view.backgroundColor = .white
@@ -71,34 +70,7 @@ final class NicknameSignupViewController: UIViewController {
     }
     
     @objc func nextButtonTapped(_ sender: UIButton) {
-        let vc = FinishSignupViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func nicknameConditionFailAlert(){
-        let alert = UIAlertController(
-            title: "에러",
-         message: "닉네임이 조건에 맞지 않습니다",
-         preferredStyle: .alert)
-        
-        let defaultAction = UIAlertAction(title: "확인", style: .default, handler: nil)
-        
-        alert.addAction(defaultAction)
-        
-        present(alert, animated: false, completion: nil)
-    }
-    
-    func sameNicknameAlert(){
-        let alert = UIAlertController(
-            title: "닉네임 중복",
-         message: "닉네임이 중복됩니다",
-         preferredStyle: .alert)
-        
-        let defaultAction = UIAlertAction(title: "확인", style: .default, handler: nil)
-        
-        alert.addAction(defaultAction)
-        
-        present(alert, animated: false, completion: nil)
+        sendNicknameToServer()
     }
     
 }
@@ -132,5 +104,68 @@ extension NicknameSignupViewController: UITextFieldDelegate {
         }
         guard textField.text!.count < 21 else { return false }
         return true
+    }
+}
+
+extension NicknameSignupViewController{
+    
+    func sendNicknameToServer() {
+    
+       nickname = nicknameTextField.text
+        
+        ValidNickname.validNickname.requestPOST(nickname: nickname ?? "") { result in
+            switch result {
+            case .success(let response):
+                self.moveToFinishSignupViewController()
+            case .requestErr:
+                self.nicknameConditionFailAlert()
+            case .pathErr:
+                self.sameNicknameAlert()
+            case .serverErr:
+                return
+            case .networkFail:
+                return
+            }
+        }
+    }
+    
+    func moveToFinishSignupViewController(){
+        DispatchQueue.main.async {
+            let vc = FinishSignupViewController()
+            vc.id = self.id
+            vc.password = self.password
+            vc.nickname = self.nickname
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    func nicknameConditionFailAlert(){
+        DispatchQueue.main.async{
+            let alert = UIAlertController(
+                title: "에러",
+                message: "닉네임이 조건에 맞지 않습니다",
+                preferredStyle: .alert)
+            
+            let defaultAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+            
+            alert.addAction(defaultAction)
+            
+            self.present(alert, animated: false, completion: nil)
+        }
+    }
+    
+    func sameNicknameAlert(){
+        DispatchQueue.main.async {
+            let alert = UIAlertController(
+                title: "닉네임 중복",
+                message: "닉네임이 중복됩니다",
+                preferredStyle: .alert)
+            
+            let defaultAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+            
+            alert.addAction(defaultAction)
+            
+            self.present(alert, animated: false, completion: nil)
+        }
     }
 }

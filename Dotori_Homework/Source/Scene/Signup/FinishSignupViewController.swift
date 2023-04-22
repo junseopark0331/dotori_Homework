@@ -4,6 +4,10 @@ import SnapKit
 
 final class FinishSignupViewController: UIViewController {
     
+    var id: String?
+    var password: String?
+    var nickname: String?
+    
     private let finishLabel = UILabel().then {
         $0.text = "완료"
         $0.textColor = UIColor(rgb: 0x000000)
@@ -58,6 +62,33 @@ final class FinishSignupViewController: UIViewController {
     }
 
     @objc func gotoLoginButtonTapped(_ sender: UIButton) {
+        sendIdPasswordNicknameToServer()
+    }
+}
+
+extension FinishSignupViewController{
+    
+    func sendIdPasswordNicknameToServer() {
+        
+        Signup.signup.requestPOST(nickname: nickname ?? "", id: id ?? "", password: password ?? "") { result in
+            switch result {
+            case .success(let response):
+                self.successToSignin()
+            case .requestErr:
+                return
+            case .pathErr:
+                return
+            case .serverErr:
+                return
+            case .networkFail:
+                return
+            }
+        }
+    }
+    
+    func successToSignin(){
         navigationController?.popToRootViewController(animated: true)
     }
+    
+    
 }

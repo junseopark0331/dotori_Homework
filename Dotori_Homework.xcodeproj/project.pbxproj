@@ -11,6 +11,7 @@
 		7851444B29DF2BEA00016611 /* NicknameSignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7851444A29DF2BEA00016611 /* NicknameSignupViewController.swift */; };
 		7851444D29DF2D0900016611 /* FinishSignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7851444C29DF2D0900016611 /* FinishSignupViewController.swift */; };
 		7852593B29EBD95000AFDE66 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7852593A29EBD95000AFDE66 /* Model.swift */; };
+		7856213D29F3B813009D3A5C /* Signup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7856213C29F3B813009D3A5C /* Signup.swift */; };
 		785F7C5729DDB2A600435DD0 /* PasswordSignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785F7C5629DDB2A600435DD0 /* PasswordSignupViewController.swift */; };
 		786875C029F15F8500CA655F /* ValidNickname.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786875BF29F15F8500CA655F /* ValidNickname.swift */; };
 		786A242729D1BEF100A1EF7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786A242629D1BEF100A1EF7D /* AppDelegate.swift */; };
@@ -42,6 +43,7 @@
 		7851444A29DF2BEA00016611 /* NicknameSignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameSignupViewController.swift; sourceTree = "<group>"; };
 		7851444C29DF2D0900016611 /* FinishSignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishSignupViewController.swift; sourceTree = "<group>"; };
 		7852593A29EBD95000AFDE66 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		7856213C29F3B813009D3A5C /* Signup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signup.swift; sourceTree = "<group>"; };
 		785F7C5629DDB2A600435DD0 /* PasswordSignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordSignupViewController.swift; sourceTree = "<group>"; };
 		786875BF29F15F8500CA655F /* ValidNickname.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidNickname.swift; sourceTree = "<group>"; };
 		786A242329D1BEF100A1EF7D /* Dotori_Homework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dotori_Homework.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -245,6 +247,7 @@
 			children = (
 				78E9BBF029EC488C00F42ADF /* ValidId.swift */,
 				786875BF29F15F8500CA655F /* ValidNickname.swift */,
+				7856213C29F3B813009D3A5C /* Signup.swift */,
 			);
 			path = Signup;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				7898696F29DC5A5B001CEBBC /* SecureButtonTextField.swift in Sources */,
 				7851444B29DF2BEA00016611 /* NicknameSignupViewController.swift in Sources */,
 				7851444D29DF2D0900016611 /* FinishSignupViewController.swift in Sources */,
+				7856213D29F3B813009D3A5C /* Signup.swift in Sources */,
 				786A242729D1BEF100A1EF7D /* AppDelegate.swift in Sources */,
 				7887107129EB165200871B6F /* Login.swift in Sources */,
 				7898696D29DC5965001CEBBC /* CustomTextField.swift in Sources */,

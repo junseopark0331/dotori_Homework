@@ -4,6 +4,10 @@ import SnapKit
 
 final class PasswordSignupViewController: UIViewController {
     
+    var id: String?
+    var password: String?
+    
+    
     private let authHeaderView = AuthHeaderView().then {
         $0.mainLabel.text = "사용하실 비밀번호를 입력해주세요"
     }
@@ -50,9 +54,12 @@ final class PasswordSignupViewController: UIViewController {
     
     @objc func nextButtonTapped(_ sender: UIButton) {
         let vc = NicknameSignupViewController()
+        vc.id = self.id
+        vc.password = self.password
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+
     func setLayout() {
         self.authHeaderView.snp.makeConstraints {
             $0.height.equalTo(82)
@@ -101,6 +108,8 @@ extension PasswordSignupViewController: UITextFieldDelegate {
             if passwordTextField.text == passwordAgainTextField.text{
                 nextStepButton.backgroundColor = UIColor(rgb: 0x6F7AEC)
                 nextStepButton.isEnabled = true
+                
+                password = passwordTextField.text
             }
         }
         else{
@@ -116,9 +125,9 @@ extension PasswordSignupViewController: UITextFieldDelegate {
                 return true
             }
         }
-        
         guard textField.text!.count < 41 else { return false }
         return true
     }
 }
+
 

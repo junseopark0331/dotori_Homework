@@ -3,6 +3,9 @@ import Then
 import SnapKit
 
 final class IdSignupViewController: UIViewController {
+    
+    var id: String?
+    
     private let authHeaderView = AuthHeaderView().then {
         $0.mainLabel.text = "사용하실 아이디를 입력해주세요"
     }
@@ -62,37 +65,8 @@ final class IdSignupViewController: UIViewController {
         }
     }
     
-    
     @objc func nextButtonTapped(_ sender: UIButton) {
         sendIdToServer()
-        //        let vc = PasswordSignupViewController()
-        //        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func idConditionFailAlert(){
-        let alert = UIAlertController(
-            title: "에러",
-            message: "아이디가 조건에 맞지 않습니다",
-            preferredStyle: .alert)
-        
-        let defaultAction = UIAlertAction(title: "확인", style: .default, handler: nil)
-        
-        alert.addAction(defaultAction)
-        
-        present(alert, animated: false, completion: nil)
-    }
-    
-    func sameIdAlert(){
-        let alert = UIAlertController(
-            title: "아이디 중복",
-            message: "아이디가 중복됩니다",
-            preferredStyle: .alert)
-        
-        let defaultAction = UIAlertAction(title: "확인", style: .default, handler: nil)
-        
-        alert.addAction(defaultAction)
-        
-        present(alert, animated: false, completion: nil)
     }
     
 }
@@ -134,32 +108,60 @@ extension IdSignupViewController: UITextFieldDelegate {
 extension IdSignupViewController{
     
     func sendIdToServer() {
-        // 요청할 ID 값
-        guard let id = idTextField.text else { return }
         
-        // ValidId 싱글톤 인스턴스를 통해 서버 통신 요청
-        ValidId.validId.requestPOST(id: id) { result in
+        id = idTextField.text
+        
+        ValidId.validId.requestPOST(id: id ?? "") { result in
             switch result {
             case .success(let response):
-                // 성공적인 응답 처리
-                return
-                // TODO: 응답에 따른 로직 처리
+                self.moveToPasswordViewController()
             case .requestErr:
                 self.idConditionFailAlert()
-                    print("400")
             case .pathErr:
                 self.sameIdAlert()
-                print("409")
             case .serverErr:
                 return
             case .networkFail:
                 return
             }
-            
         }
-        
     }
     
+    func idConditionFailAlert(){
+        DispatchQueue.main.async{
+            let alert = UIAlertController(
+                title: "에러",
+                message: "아이디가 조건에 맞지 않습니다",
+                preferredStyle: .alert)
+            
+            let defaultAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+            
+            alert.addAction(defaultAction)
+            
+            self.present(alert, animated: false, completion: nil)
+        }
+    }
     
+    func sameIdAlert(){
+        DispatchQueue.main.async {
+            let alert = UIAlertController(
+                title: "아이디 중복",
+                message: "아이디가 중복됩니다",
+                preferredStyle: .alert)
+            
+            let defaultAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+            
+            alert.addAction(defaultAction)
+            
+            self.present(alert, animated: false, completion: nil)
+        }
+    }
+    
+    func moveToPasswordViewController(){
+        DispatchQueue.main.async {
+            let vc = PasswordSignupViewController()
+            vc.id = self.id
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 }
-

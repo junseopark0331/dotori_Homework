@@ -1,26 +1,30 @@
 import Foundation
 
-final class ValidId {
+final class Signup {
     
-    static let validId = ValidId()
+    static let signup = Signup()
     
     private init() {}
 
-    
-    func requestPOST(id: String, completion: @escaping(NetworkResult<Any>) -> Void) {
+    func requestPOST(nickname: String, id: String, password: String, completion: @escaping(NetworkResult<Any>) -> Void) {
         
-        var urlComponents = URLComponents(string: APIConstants.validIdURL)
+        var urlComponents = URLComponents(string: APIConstants.signupURL)
         
-        let userIdQuery = URLQueryItem(name: "userId", value: id)
-        urlComponents?.queryItems = [userIdQuery]
+        let dicData = ["nickname": nickname, "userId": id, "password" : password] as Dictionary<String, Any>? // 딕셔너리 사용해 json 데이터 만든다
+        let jsonData = try! JSONSerialization.data(withJSONObject: dicData!, options: [])
         
         guard let requestURL = urlComponents?.url else {
             print("[requestPOST: URL 생성 실패]")
             return
         }
         
+       
+        
         var request = URLRequest(url: requestURL)
-        request.httpMethod = "HEAD"
+       
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = jsonData
         
         let dataTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
             
@@ -32,6 +36,8 @@ final class ValidId {
             
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode else {return}
           
+            print(statusCode)
+            
             switch statusCode {
             case 200:
                 completion(.success(""))
@@ -48,3 +54,4 @@ final class ValidId {
     dataTask.resume()
     }
 }
+
